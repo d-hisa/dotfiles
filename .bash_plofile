@@ -1,0 +1,11 @@
+# console name chnaged
+#PS1="\[\033]0;$MSYSTEM:${PWD//[^[:ascii:]]/?}\007\]\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ "
+
+# SSH connection(agent forwarding)
+alias mdnote="cd ~/git_repos_dir/MDnotes"
+alias sshsetup='eval "$(ssh-agent)" && ssh-add ~/.ssh/hisazawa'
+
+# git update automatic
+cd ~/git_repos_dir/MDnotes && git pull
+
+
