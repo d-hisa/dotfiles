@@ -1,12 +1,41 @@
-"--- Line Number default present ---
-set number
-"--- Auto indent when paste and break, etc. ---
-set smartindent
-"--- Set CharCode default UTF-8 ---
+"""### Basic Vim Settings ###"""
+""==== system settings ====""
+"----- Set CharCode default UTF-8 -----
 set encoding=utf-8
-"--- Set file auto recognizing ---
+"----- Set file auto recognizing -----
 set fileencodings=cp932,sjis,utf-8
+"----- auto read again change files -----
+set autoread
+""==== editor settings ====""
+"----- Line Number default present -----
+set number
+"----- Auto indent when paste and break, etc. -----
+set smartindent
+"----- Auto Syntax highright enable -----
+syntax on
+"----- Strength showing current line -----
+set cursorline
+set cursorcolumn
+"----- Can move cursor to end line -----
+set virtualedit=onemore
+"----- highright correspondding brackets -----
+set showmatch
+"----- Autocomplete Command line -----
+set wildmode=list:longest
+""==== tab settinga ====
+"----- Tab to half-space -----
+set expandtab
+"----- Tab width -----
+set shiftwidth=4
+""==== Search settings ====
+"--- ignore capital or small case ---
+set ignorecase
+"--- inclimental search ---
+set incsearch
+"--- highlighting search result ---
+set hlsearch
 
+"""### dein.vim Settings ###"""
 "dein Scripts----------------------------- 
 if &compatible
 	set nocompatible               " Be iMproved 
