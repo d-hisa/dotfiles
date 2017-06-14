@@ -1,42 +1,55 @@
-"""### Basic Vim Settings ###"""
-""==== system settings ====""
-"----- Set CharCode default UTF-8 -----
-set encoding=utf-8
-"----- Set file auto recognizing -----
-set fileencodings=cp932,sjis,utf-8
-"----- auto read again change files -----
-set autoread
-""==== editor settings ====""
-"----- Line Number default present -----
-set number
-"----- Auto indent when paste and break, etc. -----
-set smartindent
-"----- Auto Syntax highright enable -----
-syntax on
-"----- Strength showing current line -----
-set cursorline
-set cursorcolumn
-"----- Can move cursor to end line -----
-set virtualedit=onemore
-"----- highright correspondding brackets -----
-set showmatch
-"----- Autocomplete Command line -----
-set wildmode=list:longest
-""==== tab settinga ====
-"----- Tab to half-space -----
-set expandtab
-"----- Tab width -----
-set shiftwidth=4
-""==== Search settings ====
-"--- ignore capital or small case ---
-set ignorecase
-"--- inclimental search ---
-set incsearch
-"--- highlighting search result ---
-set hlsearch
+"######################################################################################
+"## Vimrc Settings
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" .vimrc settings agenda
+" * Basics: default vim settings
+"   + [system] : for systematic settings
+"   + [editor] : for editing settings
+"   + [search] : search settongs 
+" * Dein: dein vim plugins settings
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-"""### dein.vim Settings ###"""
-"dein Scripts----------------------------- 
+"######################################################################################
+"## Basics
+"======================================================================================
+"| system
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+set encoding=utf-8			" default charctor code UTF-8
+set fileencodings=cp932,sjis,utf-8	" auto file recognizition sequential
+set autoread				" reading again when changed files
+set ambiwidth=double		" Improving treated way Double digit on vim
+"======================================================================================
+"| editor
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+set number					" Line Number present default
+set smartindent				" Auto indent when paste and break, or etc.
+syntax on					" Auto  syntax highright
+set cursorline				" Strength showing current line and column 
+set cursorcolumn			" ditto 
+set virtualedit=onemore		" can move cursor to end line
+set showmatch				" highrighting corresponding both brakets
+set wildmode=list:longest	" Autocomplete vim commands
+set expandtab				" TAB to halh digit spaces
+set shiftwidth=4			" TAB width (present spaces TAB auto inserted by vim)
+set tabstop=4				" TAB width (present spaces <TAB> code)
+set softtabstop=0			" TAB width (amount spaces when type TAB key))
+set textwidth=0				" auto break amount charactors (setting 0, disable auto br)
+set backspace=start,eol,indent	" Setting behavior of BackSpace
+								" - start : allow  erasing when change InsertMode again 
+								"           after back NormalMode
+								" - eol   : linking rows when type BS on row head
+								" - indent: allow erasng indent
+"======================================================================================
+"| search
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+set ignorecase				" ignore capital or small case
+set incsearch				" incremental search
+set hlsearch				" highrighting search result
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+"######################################################################################
+"## Dein
+"======================================================================================
 if &compatible
 	set nocompatible               " Be iMproved 
 endif  
