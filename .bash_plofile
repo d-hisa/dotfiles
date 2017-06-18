@@ -17,3 +17,9 @@ alias sshsetup='eval "$(ssh-agent)" && ssh-add ~/.ssh/hisazawa'
 cd ~/git_repos_dir/MDnotes && git pull
 
 ####
+
+
+## OS (uname)
+# MINGW32_NT-10.0-WOW: cmder:bash
+# MSYS_NT-10.0: cmder msys2
+# : Mac OSX
