@@ -6,6 +6,9 @@
 "   + [system] : for systematic settings
 "   + [editor] : for editing settings
 "   + [search] : search settongs 
+" * Extra: unbasical settings (using script)
+"	+ [mouse]  : for using mouse
+"	+ [clpbrd] : for using clipboard
 " * Dein: dein vim plugins settings
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -15,9 +18,11 @@
 "| system
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 set encoding=utf-8			" default charctor code UTF-8
-set fileencodings=cp932,sjis,utf-8	" auto file recognizition sequential
+set fileencodings=cp932,sjis,utf-8	" auto file recognizition sequential (left priority high)
+set fileformats=unix,dos,mac	" auto eol recognition (left priority high) 
 set autoread				" reading again when changed files
 set ambiwidth=double		" Improving treated way Double digit on vim
+set history=1000			" command history amount
 "======================================================================================
 "| editor
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -39,12 +44,44 @@ set backspace=start,eol,indent	" Setting behavior of BackSpace
 								"           after back NormalMode
 								" - eol   : linking rows when type BS on row head
 								" - indent: allow erasng indent
+set autoindent				" autoindent enable
+set showmatch				" highlight corresponding bracket
 "======================================================================================
 "| search
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 set ignorecase				" ignore capital or small case
 set incsearch				" incremental search
 set hlsearch				" highrighting search result
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+"######################################################################################
+"## Extra
+""======================================================================================
+"| Mouse 
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if has('mouse')
+	set mouse=a
+	if has('mouse_sgr')
+		set ttymouse=sgr
+	elseif v:version > 703 || v:version is 703 && has('patch632')
+	    set ttymouse=sgr
+	else
+	    set ttymouse=xterm2
+	endif
+endif
+""======================================================================================
+"| Clipboard 
+"''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if &term =~ "xterm"
+	let &t_SI .= "\e[?2004h"
+	let &t_EI .= "\e[?2004l"
+	let &pastetoggle = "\e[201~"
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 "######################################################################################
