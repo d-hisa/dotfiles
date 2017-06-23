@@ -8,8 +8,8 @@
 "   + [editor] : for editor settings
 "   + [search] : for search settongs 
 " * Extra: unbasical settings (using script)
-"	+ [mouse]  : for using mouse
-"	+ [clpbrd] : for using clipboard
+"   + [mouse]  : for using mouse
+"   + [clpbrd] : for using clipboard
 " * Dein: dein vim plugins settings
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -18,50 +18,50 @@
 "======================================================================================
 "| system
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-set encoding=utf-8			" default charctor code UTF-8
-set fileencodings=cp932,sjis,utf-8	" auto file recognizition sequential (left priority high)
-set fileformats=unix,dos,mac	" auto eol recognition (left priority high) 
-set autoread				" reading again when changed files
-set ambiwidth=double		" Improving treated way Double digit on vim
-set history=1000			" command history amount
-set wildmode=list:longest	" Autocomplete vim commands
+set encoding=utf-8                  " default charctor code UTF-8
+set fileencodings=cp932,sjis,utf-8  " auto file recognizition sequential (left priority high)
+set fileformats=unix,dos,mac        " auto eol recognition (left priority high) 
+set autoread                        " reading again when changed files
+set ambiwidth=double                " Improving treated way Double digit on vim
+set history=1000                    " command history amount
+set wildmode=list:longest           " Autocomplete vim commands
 "======================================================================================
 "| visual
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-set number					" Line Number present default
-syntax on					" Auto  syntax highright
-set showmatch				" highrighting corresponding both brakets
-set cursorline				" Strength showing current line and column 
-set cursorcolumn			" ditto 
-set list                    " showing invisible charactors
-set listchars=tab:»-,trail:-,nbsp:%,eol:<_
-                            " list settings
-                            " - tab: <TAB>
-                            " - trail: space of end line
-                            " - nbsp: no break space
-                            " - eol: break return
+set number                          " Line Number present default
+syntax on                           " Auto  syntax highright
+set showmatch                       " highrighting corresponding both brakets
+set cursorline                      " Strength showing current line and column 
+set cursorcolumn                    " ditto 
+set list                            " showing invisible charactors
+set listchars=tab:>-,trail:-,eol:$
+                                    " list settings
+                                    " - tab: <TAB>
+                                    " - trail: space of end line
+                                    " - nbsp: no break space
+                                    " - eol: break return
 "======================================================================================
 "| editor
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-set autoindent				" autoindent enable
-set smartindent				" Auto indent when paste and break, or etc.
-set virtualedit=onemore		" can move cursor to end line
-set expandtab				" TAB to halh digit spaces
-set shiftwidth=4			" TAB width (present spaces TAB auto inserted by vim)
-set tabstop=4				" TAB width (present spaces <TAB> code)
-set softtabstop=0			" TAB width (amount spaces when type TAB key))
-set textwidth=0				" auto break amount charactors (setting 0, disable auto br)
-set backspace=start,eol,indent	" Setting behavior of BackSpace
-								" - start : allow  erasing when change InsertMode again 
-								"           after back NormalMode
-								" - eol   : linking rows when type BS on row head
-								" - indent: allow erasng indent
+set autoindent                      " autoindent enable
+set smartindent                     " Auto indent when paste and break, or etc.
+set virtualedit=onemore             " can move cursor to end line
+set expandtab                       " TAB to halh digit spaces
+set shiftwidth=4                    " TAB width (present spaces TAB auto inserted by vim)
+set tabstop=4                       " TAB width (present spaces <TAB> code)
+set softtabstop=0                   " TAB width (amount spaces when type TAB key))
+set textwidth=0                     " auto break amount charactors (setting 0, disable auto br)
+set backspace=start,eol,indent      " Setting behavior of BackSpace
+                                    " - start : allow  erasing when change InsertMode again 
+                                    "           after back NormalMode
+                                    " - eol   : linking rows when type BS on row head
+                                    " - indent: allow erasng indent
 "======================================================================================
 "| search
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-set ignorecase				" ignore capital or small case
-set incsearch				" incremental search
-set hlsearch				" highrighting search result
+set ignorecase                      " ignore capital or small case
+set incsearch                       " incremental search
+set hlsearch                        " highrighting search result
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 "######################################################################################
@@ -83,9 +83,9 @@ endif
 "| Clipboard 
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 if &term =~ "xterm"
-	let &t_SI .= "\e[?2004h"
-	let &t_EI .= "\e[?2004l"
-	let &pastetoggle = "\e[201~"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
     function XTermPasteBegin(ret)
         set paste
         return a:ret
@@ -98,7 +98,7 @@ endif
 "## Dein
 "======================================================================================
 "if &compatible
-"	set nocompatible               " Be iMproved 
+"   set nocompatible               " Be iMproved 
 "endif  
 "" Required: 
 "set runtimepath+=C:/Users/hisazawa/.cache/dein/repos/github.com/Shougo/dein.vim  
