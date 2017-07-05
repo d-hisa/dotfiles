@@ -2,7 +2,9 @@
 ## Introduction
 
 ## Summary
+```bash
 
+```
 ## Dotfiles
 ### .bash_profile
 - Common settings written.
