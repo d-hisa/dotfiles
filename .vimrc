@@ -94,6 +94,53 @@ if &term =~ "xterm"
 endif
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+"editing...
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:<-|
+" tab: tabs
+" trail: end row space
+" nbsp: no-break-space
+" eol: return
+
+"vim tabをきれいに表示するための設定。ここから
+colo desert
+" カレントタブをハイライト
+hi TabLineSel ctermbg=1
+" タブにフルパスでなく、ファイル名のみを表示する                                
+set tabline=%!MyTabLine()
+" 常にタブラインを表示                                                          
+set showtabline=2
+
+function! MyTabLine()
+    let s = ''
+    for i in range(tabpagenr('$'))
+        " ラベルは MyTabLabel() で作成する
+        let my_tab_label = '%{MyTabLabel(' . (i + 1) . ')}'
+        " 強調表示グループの選択
+        if i + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " タブ番号 : [ファイル名] のフォーマットになるように設定
+        let s .= (i + 1) . ':[' . my_tab_label .'] '
+    endfor
+
+    " 最後のタブページの後は TabLineFill で埋め、タブページ番号をリセットする
+    let s .= '%#TabLineFill#%T'
+
+    return s
+endfunction                                                                     
+
+function! MyTabLabel(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    return fnamemodify(bufname(buflist[winnr - 1]), ":t")
+endfunction
+
+"ここまで
+
+
 "######################################################################################
 "## Dein
 "======================================================================================
