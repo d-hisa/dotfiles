@@ -34,7 +34,9 @@ set showmatch                       " highrighting corresponding both brakets
 set cursorline                      " Strength showing current line and column 
 set cursorcolumn                    " ditto 
 set list                            " showing invisible charactors
-set listchars=tab:>-,trail:-,eol:$
+set listchars=tab:>-
+set listchars=trail:-
+set listchars=eol:$
                                     " list settings
                                     " - tab: <TAB>
                                     " - trail: space of end line
@@ -80,7 +82,7 @@ if has('mouse')
 	endif
 endif
 ""======================================================================================
-"| Clipboard 
+"| Clipboard (keep original indent when paste from clipboard) 
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -95,13 +97,6 @@ endif
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 "editing...
-set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:<-|
-" tab: tabs
-" trail: end row space
-" nbsp: no-break-space
-" eol: return
-
 "vim tabをきれいに表示するための設定。ここから
 colo desert
 " カレントタブをハイライト
